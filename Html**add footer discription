@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Milk Scale - दूध और सैंपल से इंक्रीमेंट निकालने का ऐप डाउनलोड करें</title>
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4237674892461520"
+     crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <link rel="icon" type="image/png" href="favicon.png"> 
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SKMPPCG6LG"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-SKMPPCG6LG');
+    </script>
+    <style>
+        /* General Setup */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-color: #1956a8; /* नीला बैकग्राउंड */
+        }
+        
+        /* Main Content & Image */
+        .main-content {
+            flex-grow: 1;
+            position: relative;
+            text-align: center;
+            height: auto; 
+            padding-bottom: 20px; 
+        }
+        
+        /* 🟢 H1 हेडिंग के लिए स्टाइल */
+        .app-title {
+            color: white;
+            font-size: 24px;
+            padding: 15px 10px 0;
+            margin: 0;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .background-image {
+            width: 100%;
+            /* आपकी इमेज का URL यहाँ उपयोग किया गया है */
+            background-image: url('https://i.postimg.cc/fRmB5KnN/main-background.png');
+            background-size: contain; /* इमेज को कंटेन करें */
+            background-position: top center;
+            background-repeat: no-repeat;
+            height: 75vh; /* मोबाइल पर इमेज को फिट करने के लिए */
+            display: block; 
+        }
+
+        /* बटन को स्थिर (Fixed) करने वाला रैपर */
+        .fixed-button-wrapper {
+            position: fixed; 
+            bottom: 15vh;    /* बटन को बॉटम से ऊपर रखें */
+            left: 50%;
+            transform: translateX(-50%); /* बटन को सेंटर करें */
+            z-index: 1000;   
+        }
+
+        /* Download Button Style */
+        .download-button {
+            /* यह वह Raw लिंक है जो सीधा डाउनलोड शुरू करेगा */
+            background-color: #28a745; /* हरा रंग */
+            color: white;
+            padding: 18px 50px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 26px; 
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+            transition: background-color 0.3s, transform 0.1s;
+            white-space: nowrap;
+        }
+        .download-button:hover {
+            background-color: #218838;
+            transform: translateY(-2px); 
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        }
+        .download-button:active {
+            background-color: #1e7e34;
+            transform: translateY(0); 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        .download-button i {
+            font-size: 28px;
+        }
+
+        /* Blue Footer Section */
+        .footer-section {
+            width: 100%;
+            height: auto; 
+            background-color: #1956a8; 
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px 10px; 
+            text-align: center;
+            font-size: 16px;
+        }
+        
+        /* Footer Content: Master container */
+        .footer-content {
+            max-width: 700px;
+            width: 100%; 
+            line-height: 1.5; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px; 
+        }
+
+        .footer-content a {
+            color: #ffcc00; /* गोल्डन/पीला रंग लिंक्स के लिए */
+            text-decoration: underline;
+            font-weight: bold;
+            word-break: break-all;
+            overflow-wrap: break-word; 
+        }
+        
+        /* Footer Paragraph Text Styling */
+        .footer-content p {
+            margin: 0; 
+            padding: 0; 
+            word-wrap: break-word; 
+            overflow-wrap: break-word;
+            max-width: 100%;
+            text-align: center;
+        }
+
+        /* Links container */
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            align-items: center; 
+            gap: 8px;
+            width: 100%; 
+            max-width: 400px; 
+            padding: 0 5px; 
+        }
+        
+        /* Link styling for your requested format */
+        .footer-links div {
+            text-align: center; 
+            word-break: break-word; 
+            overflow-wrap: break-word;
+            width: 100%;
+            line-height: 1.3;
+        }
+
+        /* ======================================================= */
+        /* MEDIA QUERY FOR MOBILE DEVICES (<= 767px) */
+        /* ======================================================= */
+        @media (max-width: 767px) {
+            
+            /* H1 मोबाइल पर छोटा */
+            .app-title {
+                font-size: 20px;
+                padding-top: 10px;
+            }
+            
+            /* Download Button adjustment for mobile */
+            .download-button {
+                font-size: 20px; 
+                padding: 12px 25px; 
+                gap: 8px;
+                box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); 
+            }
+            .download-button:hover {
+                 box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+            }
+            .download-button i {
+                 font-size: 22px;
+            }
+            
+            /* फिक्स्ड बटन को मोबाइल पर स्क्रीन के नीचे से और ऊपर रखा गया */
+            .fixed-button-wrapper {
+                bottom: 50px; 
+            }
+            
+            /* Mobile Text Wrapping Final Fix */
+            .footer-content {
+                text-align: center; 
+                font-size: 13px; 
+                width: 100%; 
+                padding: 0 5px; 
+            }
+            
+            .main-text {
+                width: 100%; 
+                padding: 0 5px;
+            }
+
+            .footer-content p {
+                line-height: 1.3; 
+                max-width: 100%;
+            }
+
+            /* 4 लाइन वाले टेक्स्ट के लिए मार्जिन कम करना */
+            .line-fix {
+                margin-bottom: 5px !important; 
+                line-height: 1.2 !important; 
+            }
+            /* पहली लाइन को बोल्ड करने के लिए थोड़ा अतिरिक्त स्पेस */
+            .main-text p:first-child {
+                font-weight: bold;
+                margin-bottom: 8px !important; 
+            }
+            /* 4th लाइन (अंतिम लाइन) के बाद थोड़ा ज़्यादा स्पेस */
+            .main-text p:last-child {
+                margin-bottom: 15px !important;
+            }
+            
+
+            .footer-links {
+                align-items: center;
+                max-width: 95%; 
+                padding: 0;
+            }
+            
+            .footer-links a {
+                font-size: 13px;
+                display: block; 
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-content">
+        <h1 class="app-title">Milk Scale App Official Download Page</h1>
+        <div class="background-image"></div>
+    </div>
+    
+    <div class="fixed-button-wrapper">
+        <a href="https://raw.githubusercontent.com/nak518000-hash/MilkScaleApp.apk/main/MilkScaleApp.apk" 
+           class="download-button" 
+           download="MilkScaleApp.apk"> 
+            
+            <i class="fab fa-android"></i> 
+            Download App 
+            <i class="fas fa-download"></i>
+        </a>
+    </div>
+    
+    <div class="footer-section">
+        <div class="footer-content">
+            
+            <p style="font-size: 14px; text-align: center; margin-bottom: 20px; padding: 0 5px; line-height: 1.5;">
+                यह **Milk Scale App** विशेष रूप से दूध के व्यवसाय को आसान बनाने के लिए बनाया गया है। 
+                यह **दूध स्केल** का उपयोग करके **दूध और सैंपल की वैल्यू** से तुरंत **इंक्रीमेंट** निकालता है। 
+                यह **Milk Scale App** कोई हिसाब स्टोर नहीं करता है, बल्कि सिर्फ़ सही वैल्यू की गणना करता है।
+                **Milk Scale App** डाउनलोड करें और अपने काम को तेज़ी से पूरा करें!
+            </p>
+            <div class="main-text">
+                
+                <p class="line-fix">यदि App Download नहीं हो रहा है, तो आप हमें संपर्क करें:</p>
+                
+                <p class="line-fix">आप हमें **Email** कर सकते हैं या **Telegram/WhatsApp Group** में</p>
+                
+                <p class="line-fix">**Direct Message** के माध्यम से अपनी समस्या बता सकते हैं।</p>
+                
+                <p class="line-fix">आपकी समस्या का समाधान **तुरंत** किया जाएगा।</p>
+                
+            </div>
+            
+            <hr style="border-color: rgba(255, 255, 255, 0.3); width: 80%; margin: 15px auto;">
+
+            <div class="footer-links">
+                <div>
+                    **📧 Email id :** <a href="mailto:milkscale.help.request@gmail.com">milkscale.help.request@gmail.com</a>
+                </div>
+                
+                <div>
+                    **💬 Whatsapp group :** <a href="https://chat.whatsapp.com/FVhpiIlJQcjIz29OzwXor4?mode=wwt" target="_blank">[https://chat.whatsapp.com/FVhpiIlJQcjIz29OzwXor4?mode=wwt]</a>
+                </div>
+                
+                <div>
+                    **📢 Teligrame group :** <a href="https://t.me/milkscalegroup" target="_blank">[https://t.me/milkscalegroup]</a>
+                </div>
+                
+                <div>
+                    **📣 Telegram chanel :** <a href="https://t.me/milkscaleapp" target="_blank">[https://t.me/milkscaleapp]</a>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+</body>
+</html>
